@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
+<html lang="en">
+
+<head>
+  <script src="js/comprobarLogin.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="82751548078-ak6scpnkojgcebd8uenunmm9rhufe8ep.apps.googleusercontent.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>eMercado - Todo lo que busques está aquí</title>
+  <script src="js/cerrarSesion.js"></script>
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/my-Profile.css" rel="stylesheet">
+  <script src="js/convertir.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>  
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    body, footer{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+}
+
+/* #formulario{
+  background: -webkit-linear-gradient(top, #00c6ff, #3931af);
+} */
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/dropzone.css" rel="stylesheet">
+</head>
+
+<body>
+
+ <!------------PRUEBA BARRA NAVEGACION--------------------->
+    
+<div class="row justify-content-center">
+  <div class="col-12">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" 
+          data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+          aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="home.html">Home <i class="fas fa-home"></i></a> 
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="categories.html">Categorías <i class="fas fa-list-ul"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="products.html">Productos <i class="far fa-newspaper"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sell.html">Vender <i class="fas fa-hand-holding-usd"></i></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="usuariolog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="cart.html">Mi carrito<i class="fas fa-shopping-cart"></i><span id="numeroProductos" class="badge badge-danger rounded-circle">3</span></a>
+          <a class="dropdown-item" href="my-profile.html">Mi perfil <i class="far fa-address-card"></i></a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="index.html" onclick="cerrarSesion()">Cerrar Sesion <i class="fas fa-times-circle"></i></a>
+        </div>
+        </li>
+      </ul>
+    </div>
+    </nav>
+  </div>
+</div>
+
+
+<main>
+
+
+<!------------------------CARTA PERFIL------------------------------------>
+<div class="container rounded bg-white mt-5" id="formulario" style="background-image: url(img/login2.png);">
+  <div class="row">
+      <div class="col-md-4 border-right">
+          <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img id="foto" src="" height="200" alt="Imagen perfil"><br><br><h4 id="usuariolog2" class="font-weight-bold"></h4 ></div>
+          <input type="file" onchange="previewFile()" placeholder=""><br>
+      </div>
+      <div class="col-md-8">
+          <div class="p-3 py-5">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                  <div class="d-flex flex-row align-items-center back"><i class="fa fa-long-arrow-left mr-1 mb-1"></i>
+                      <h3>Datos Personales <i class="fas fa-address-card"></i></h3> 
+                  </div>
+                  
+              </div>
+              <div class="row mt-2" >
+                  <label class="form-control-plaintext" style="font-weight: bolder; color:seagreen"> Nombre: <input type="text" id="nombre" style="font-weight:bold"></label><br>
+                  <label class="form-control-plaintext" style="font-weight: bolder; color:seagreen"> Apellido: <input type="text" id="apellido" style="font-weight:bold"></label><br>
+                  <label class="form-control-plaintext" style="font-weight: bolder; color:seagreen"> e-Mail: <input type="email" id="email" style="font-weight:bold"></label><br>
+                  <label class="form-control-plaintext" style="font-weight: bolder; color:seagreen"> Celular <input type="number" id="celular" min="0" style="font-weight:bold"></label><br>
+                  <label class="form-control-plaintext" style="font-weight: bolder; color:seagreen"> Edad: <input type="number" id="edad" min="1" style="font-weight:bold"></label><br>
+              </div>
+              
+              <div class="mt-5 text-right"><input type="submit" class="btn btn-primary profile-button" value="Guardar" id="guardar" onclick="guardar()"></input></div>
+              
+          </div>
+      </div>
+  </div>
+</div>
+<!--------------------------CARTA PERFIL---------------------------------->
+
+<br><br><br><br><br><br><br><br><br>
+<footer>
+<div class="container">
+  <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+  <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+</div>
+  </footer>
+  <div class="alert fade alert-success" role="alert" id="alertResult">
+    <span id="resultSpan"></span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/dropzone.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/my-profile.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+ <!--saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
+<html lang="en">
+
+<head>
+  <link href="css/productInfo.css" rel="stylesheet">
+  <script src="js/comprobarLogin.js"></script>
+  <script src="js/product-info.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id"
+    content="82751548078-ak6scpnkojgcebd8uenunmm9rhufe8ep.apps.googleusercontent.com">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>eMercado - Todo lo que busques está aquí</title>
+  <script src="js/cerrarSesion.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <script src="js/enviarComentario.js"></script>
+  <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
+
+</head>
+
+<body>
+
+
+ <!------------PRUEBA BARRA NAVEGACION--------------------->
+    
+ <div class="row justify-content-center">
+  <div class="col-12">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" 
+          data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+          aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="home.html">Home <i class="fas fa-home"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="categories.html">Categorías <i class="fas fa-list-ul"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="products.html">Productos <i class="far fa-newspaper"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sell.html">Vender <i class="fas fa-hand-holding-usd"></i></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="usuariolog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="cart.html">Mi carrito<i class="fas fa-shopping-cart"></i><span id="numeroProductos" class="badge badge-danger rounded-circle">3</span></a>
+          <a class="dropdown-item" href="my-profile.html">Mi perfil <i class="far fa-address-card"></i></a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="index.html" onclick="cerrarSesion()">Cerrar Sesion <i class="fas fa-times-circle"></i></a>
+        </div>
+        </li>
+      </ul>
+    </div>
+    </nav>
+  </div>
+</div>
+
+<!------------------------------------------------------------>  
+
+
+  <div class="container p-5">
+    <main role="main">
+      <div class="container mt-5">
+        <div class="text-center p-4">
+          <h2>Descripción del vehiculo</h2>
+          <p class="lead">Encontrarás aquí toda la información del vehiculo seleccionado.</p>
+
+        </div>
+        <h3 id="nombAuto"></h3>
+        <hr class="my-3">
+        <dl>
+          <dt>Descripción</dt>
+          <dd>
+            <p id="descAuto"></p>
+          </dd>
+
+          <dt>Cantidad de autos de este modelo vendidos</dt>
+          <dd>
+            <p id="vendAuto"></p>
+          </dd>
+
+          <dt>Precio unitario del vehiculo</dt>
+          <dd>
+            <p id="costAuto"></p>
+          </dd>
+
+          <dt>Categoría</dt>
+          <dd>
+            <p id="cateAuto"></p>
+          </dd>
+
+          <dt>Imágenes ilustrativas</dt>
+          <dd>
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              <div class="row text-center text-lg-left pt-2" id="imgVehi">
+            </div>
+          </div>
+            </div>
+          </dd>
+
+          <hr>
+
+           <dt>Productos relacionados</dt>
+          <dd>
+            <p id="productosRelacionados"></p>
+          </dd> 
+        </dl>
+        <hr>
+
+        <div id="listaComentarios"></div>
+        <br>
+        <hr>
+      </div>
+
+      <hr>
+
+      
+      <div class="container">
+        <div class="form-group">
+            <textarea class="form-control"  placeholder="Escribe tu comentario acerca de este vehiculo..." id="newComentario" rows="7"></textarea>
+            <br>
+            <form>
+              <p>
+                Puntuación:
+                  <select id="puntuacion">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  </select>
+            </p>
+            </form>
+            <input type="submit" onclick="enviarComentario()" value="Enviar"> <!--DESAFIATE ENTREGA 3-->
+            
+        </div>
+      </div>
+     
+      
+      <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Volver a productos.</a>
+
+
+    </main>
+
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Volver arriba</a>
+        </p>
+        <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+        <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+      </div>
+    </footer>
+    <div id="spinner-wrapper">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/product-info.js"></script>
+</body>
+
+</html>

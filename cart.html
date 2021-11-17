@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
+<html lang="en">
+
+<head>
+  <link href="css/carrito.css" rel="stylesheet">
+  <script src="js/comprobarLogin.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="82751548078-ak6scpnkojgcebd8uenunmm9rhufe8ep.apps.googleusercontent.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>eMercado - Todo lo que busques está aquí</title>
+  <script src="js/cerrarSesion.js"></script>
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+
+      .precio{
+        color:darkblue;
+      }
+    }
+  </style>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/dropzone.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!------------PRUEBA BARRA NAVEGACION--------------------->
+    
+<div class="row justify-content-center">
+  <div class="col-12">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" 
+          data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+          aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="home.html">Home <i class="fas fa-home"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="categories.html">Categorías <i class="fas fa-list-ul"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="products.html">Productos <i class="far fa-newspaper"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sell.html">Vender <i class="fas fa-hand-holding-usd"></i></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="usuariolog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="cart.html">Mi carrito<i class="fas fa-shopping-cart"></i><span id="numeroProductos" class="badge badge-danger rounded-circle">3</span></a>
+          <a class="dropdown-item" href="my-profile.html">Mi perfil <i class="far fa-address-card"></i></a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="index.html" onclick="cerrarSesion()">Cerrar Sesion <i class="fas fa-times-circle"></i></a>
+        </div>
+        </li>
+      </ul>
+    </div>
+    </nav>
+  </div>
+</div>
+
+<!------------------------------------------------------------>    
+  
+    
+
+<!-------------INTENTO DE CARRITO--------------------------->
+<div class="container p-8">
+<div class="container-fluid">
+  <div class="row">
+      <aside class="col-lg-9">
+          <div class="card">
+              <div class="table-responsive">
+                  <table id="tablaProductos" class="table table-borderless table-shopping-cart">
+                     
+                      <tbody id="carrito">
+                        <thead class="text-muted">
+                          <tr class="small text-uppercase">
+                              <th scope="col" style="text-align: center;">Producto</th>
+                              <th scope="col" width="120">c/u</th>
+                              <th scope="col" width="120">Unidades</th>
+                              <th scope="col" width="120">Subtot. Prod.</th>
+                              <th scope="col" class="text-right d-none d-md-block" width="200"></th>
+                          </tr>
+                      </thead>
+                      
+                      </tbody>
+                      
+                  </table>
+              </div>
+          </div>
+          <br>
+          
+        
+        <!--FORMULARIO ENVIO-->
+        <div class="card">
+          <div class="card-body"> 
+        <form class="row g-3 needs-validation" novalidate id="formFinal">
+          <div class="col-md-5">
+            <label for="validationCustom01" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="validationCustom01" title="Persona que recibe el producto" required>
+          </div>
+          <div class="col-md-4">
+            <label for="validationCustom02" class="form-label">País</label>
+            <input type="text" class="form-control" id="validationCustom02" required>
+          </div>
+          <div class="col-md-4">
+            <label for="validationCustom03" class="form-label">Calle</label>
+            <input type="text" class="form-control" id="validationCustom03" required>
+          </div>
+          <div class="col-md-3">
+            <label for="validationCustom04" class="form-label">Esquina</label>
+            <input type="text" class="form-control" id="validationCustom04" required>
+          </div>
+          <div class="col-md-2">
+            <label for="validationCustom05" class="form-label">Nº Puerta</label>
+            <input type="number" min="1" class="form-control" id="validationCustom05" required>
+          </div>
+          
+         <hr style="width:95%;">
+          
+          <div class="col-md-5">
+            <strong>Seleccionar Tipo de Envío:</strong>
+            <div class="form-check mb-3">
+              <input title="12 a 15 días, Costo de 5% sobre el subtotal." onclick="standard()" type="radio" class="form-check-input" id="validationFormCheck1" name="radio-stacked" required>
+              <label class="form-check-label" for="validationFormCheck1">Standard<i class="fas fa-shipping-fast"></i></label>
+            </div>
+            <div class="form-check mb-3">
+              <input title="5 a 8 días, Costo de 7% sobre el subtotal." onclick="express()" type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" required>
+              <label class="form-check-label" for="validationFormCheck2">Express<i class="fas fa-shipping-fast"></i><i class="fas fa-shipping-fast"></i></label>
+            </div>
+            <div class="form-check mb-3">
+              <input title="2 a 5 días, Costo de 15% sobre el subtotal." onclick="premium()" type="radio" class="form-check-input" id="validationFormCheck3" name="radio-stacked" required>
+              <label class="form-check-label" for="validationFormCheck3">Premium<i class="fas fa-shipping-fast"></i><i class="fas fa-shipping-fast"></i><i class="fas fa-shipping-fast"></i></label>
+            </div>
+            </div>
+          
+          <div class="col-12">
+            <button class="btn btn-out btn btn-danger btn-square btn-main mt-2" type="submit" onclick="borrarCampos()">Cancelar</button>
+            <button class="btn btn-out btn-primary btn-square btn-main mt-2" type="submit" onclick="finalizarCompra()"> Finalizar compra </button> 
+            <a href="categories.html" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continuar comprando</a>
+          </div>
+        </form>
+      </div>
+        </div>
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+
+ 
+    
+
+ 
+
+  <div class="card" id="detallesFinales">
+      <div class="card-body">
+        <p>Datos finales de su compra:</p>
+          <dl class="dlist-align">
+            <dt>Forma de pago: <span id="metodoDePagoFinal" ></span></dt>
+            <dd class="text-right ml-3"></dd>
+          </dl>
+          <dl class="dlist-align">
+            <dt>Envio seleccionado: <span id="tipoEnvio"></span></dt>
+            <dd class="text-right ml-3"></dd>
+          </dl>
+          <dl class="dlist-align">
+            <dt>Precio Final: <span id="precioFinalDetalles"></span></dt>
+            <dd class="text-right text-dark b ml-3"><strong></strong></dd>
+          </dl>
+          </div>
+  </div>
+
+</aside>
+      
+
+<aside class="col-lg-3">
+  <div class="card mb-3">
+      <div class="card-body">
+          <form>
+              <div class="form-group"> <label>Tienés un cupón?</label>
+                  <div class="input-group"> <input type="text" class="form-control coupon"  placeholder="Ingresá el código"> <span class="input-group-append"> <button class="btn btn-primary btn-apply coupon">Aplicar</button> </span> </div>
+              </div>
+              <hr>
+        </form>
+          
+          
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Seleccionar metodo de pago
+          </button>
+          
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Seleccione su metodo de pago</h5>
+                  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"> 
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="card my-4 p-3">
+                            
+                            <div class="row justify-content-center mrow">
+                              <div class="col-12">
+                                <p class="metodo"><input type="radio" name="metodo" id="tarjeta" onclick="creditCard()" checked> <img src="img/credito.png" width="35px" height="35px"/>Tarjeta de Credito  <input type="radio" name="metodo" id="cuenta" onclick="bankAccount()"> <img src="img/transferencia.png" width="35px" height="35px"/>Transferencia Bancaria</p>
+                              </div>
+                            </div>
+                            <form class="form-card needs-validation" novalidate id="formModal">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group"> <input type="number" maxlength="12" class="form-control p-0" id="cardNumber" required><label for="validationCustom01" class="form-label">Numero de Tarjeta</label> </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                   
+                                    <div class="col-sm-4 col-12">
+                                        <div class="form-group"> <input type="month" class="form-control p-0" id="expdate" required><label for="validationCustom02" class="form-label">Vencimiento</label> </div>
+                                    </div>
+                                    <div class="col-sm-4 col-12">
+                                        <div class="form-group"> <input type="password" maxlength="3" class="form-control p-0" id="passw" required><label for="validationCustom03" class="form-label">CVV</label> </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                  <div class="col-sm-4 col-12">
+                                    <label for="validationCustom06" class="form-label">Banco:</label>
+                                     <select class="form-select" id="banco" required> 
+                                      <option selected disabled value="">Seleccionar...</option>
+                                      <option value="BBVA">BBVA</option>
+                                      <option value="Itau">Itau</option>
+                                      <option value="Santander">Santander</option>
+                                      <option value="ScotiaBank">ScotiaBank</option>
+                                     </select>
+                                    </div>
+                                  </div>
+                                  <br>
+                                <div class="row">
+                                  <div class="col-12">
+                                      <div class="form-group"> <input type="number" maxlength="12" class="form-control p-0" id="accountNumber" required><label for="validationCustom04" class="form-label">Numero de Cuenta</label> </div>
+                                  </div>
+                                </div>
+                                
+                                <div class="row lrow mt-4 mb-3">
+                                    <div class="col-sm-8 col-12">
+                                        <h3>Total a pagar:</h3>
+                                    </div>
+                                    <div class="col-sm-4 col-12">
+                                        <h5 id="totalModal"></h5>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-sm-12"> <button id="botonModal" type="submit" data-bs-dismiss="modal" class="btn btn-primary">Confirmar</button></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <!-- ------------------------------- Fin modal ------------------------------------>
+  
+  <br>
+  <br>
+  
+  <div class="card">
+      <div class="card-body">
+        <dl class="dlist-align">
+          <dt>Cantidad de items: <span id="cantidadItems"></span></dt>
+          <dd class="text-right ml-3"></dd>
+      </dl>
+        <dl class="dlist-align">
+          <dt>Sub-Total: $<span id="precioSubTotal" ></span></dt>
+          <dd class="text-right ml-3"></dd>
+      </dl>
+        
+          <dl class="dlist-align">
+              <dt id="costoEnvio">Costo de envío: $</dt>
+              <dd class="text-right text-danger ml-3"></dd>
+          </dl>
+          <dl class="dlist-align">
+              <dt id="precioFinal">Precio Final: $</dt>
+              <dd class="text-right text-dark b ml-3"><strong></strong></dd>
+          </dl>
+          <hr> 
+               <a href="#detallesFinales" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Detalles Finales</a>
+      </div>
+  </div>
+  
+</aside>
+   </div>
+  </div>
+</div>
+
+<!---------------------------------------------------------->
+
+<br><br><br><br><br>
+  <footer class="text-muted bg-light">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+  </footer>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/dropzone.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/validacion.js"></script>
+</body>
+
+</html>
